@@ -6,12 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
-# Dobby (Inline Hooking for ARM64)
+# Dobby (Inline Hooking for ARM64) - отключаем ASM
 FetchContent_Declare(
     dobby
     GIT_REPOSITORY https://github.com/jmpews/Dobby.git
     GIT_TAG master
 )
+set(DOBBY_BUILD_ASM_TRAMPOLINE OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(dobby)
 
 # Dear ImGui
